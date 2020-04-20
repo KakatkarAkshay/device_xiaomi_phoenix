@@ -5,13 +5,20 @@
 #
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/xiaomi/violet/violet-vendor.mk)
-
-# GoogleCamera
-$(call inherit-product-if-exists, packages/apps/GoogleCamera/gcam.mk)
+$(call inherit-product-if-exists, vendor/xiaomi/phoenix/phoenix-vendor.mk)
 
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
+PRODUCT_BUILD_SUPER_PARTITION := false
+PRODUCT_TARGET_VNDK_VERSION := 29
+PRODUCT_SHIPPING_API_LEVEL := 29
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_BUILD_PRODUCT_IMAGE := true
+PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
+
+# GMS
+$(call inherit-product, vendor/gms/gms_full.mk)
 
 # Utils
 $(call inherit-product, $(LOCAL_PATH)/utils.mk)
@@ -19,15 +26,25 @@ $(call inherit-product, $(LOCAL_PATH)/utils.mk)
 # Vendor properties
 -include $(LOCAL_PATH)/vendor_prop.mk
 
-PRODUCT_CHARACTERISTICS := nosdcard
-
 # Boot animation
-TARGET_SCREEN_HEIGHT := 2340
+TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
+TARGET_BOOT_ANIM_RES := 1080
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay
+    $(LOCAL_PATH)/overlay \
+    $(LOCAL_PATH)/overlay-lineage
+
+PRODUCT_PACKAGES += \
+    NotchNoFillOverlay
+
+# Overlays -- Override vendor ones
+PRODUCT_PACKAGES += \
+    FrameworksResCommon \
+    FrameworksResTarget \
+    DevicesOverlay \
+    DevicesAndroidOverlay
 
 # Soong Namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -202,7 +219,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint feature
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.violet
+    android.hardware.biometrics.fingerprint@2.1-service.phoenix
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
@@ -278,7 +295,7 @@ PRODUCT_COPY_FILES += \
 # IRSC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
-
+    
 # Keylayouts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/sm6150-idp-snd-card_Button_Jack.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/sm6150-idp-snd-card_Button_Jack.kl \
@@ -286,16 +303,25 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-goodix.kl
 
 # Kernel
-LOCAL_KERNEL := device/xiaomi/violet-kernel/Image.gz-dtb
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
-
-# Kernel Modules
-BOARD_VENDOR_KERNEL_MODULES += $(wildcard device/xiaomi/violet-kernel/modules/*.ko)
+# Kernel
+BOARD_KERNEL_BASE := 0x0000
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 cgroup.memory=nokmem,nosocket loop.max_part=7 buildvariant=user
+BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_KERNEL_TAGS_OFFSET := 0x100
+BOARD_KERNEL_OFFSET := 0x00008000
+BOARD_RAMDISK_OFFSET := 0x1000000
+BOARD_KERNEL_SEPARATED_DTBO := true
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_SOURCE := kernel/xiaomi/sm6150
+TARGET_KERNEL_CONFIG := phoenix_defconfig
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.violet
+    android.hardware.light@2.0-service.phoenix
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -449,5 +475,3 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/wifi_concurrency_cfg.txt:$(TARGET_COPY_OUT_VENDOR)/etc/wifi_concurrency_cfg.txt \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
     $(LOCAL_PATH)/wifi/wpa_supplicant_wcn.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_wcn.conf
-
-PRODUCT_VENDOR_KERNEL_HEADERS := $(LOCAL_PATH)/kernel-headers

@@ -1,26 +1,25 @@
-Copyright (C) 2019 The MoKee Open Source Project
+Copyright (C) 2020 The LineageOS Project
 
-The Redmi Note 7 Pro (codenamed _"violet"_) are high-end mid-range smartphones from Xiaomi.
+Device configuration for Xiaomi Redmi K30/Poco X2
+============================================
 
-Xiaomi Redmi Note 7 Pro was announced and released in March 2019.
+The Xiaomi Redmi K30/Poco X2 (codenamed _"phoenix/phoenixin"_) is a mid range smartphone from Xiaomi's sub-brand Redmi.
+
+It was announced in December 2019 and released in January 2020.
 
 ## Device specifications
 
-| Device       | Xiaomi Redmi Note 7 Pro                         |
-| -----------: | :---------------------------------------------- |
-| SoC          | Qualcomm SM6150 Snapdragon 675                  |
-| CPU          | 8x Qualcomm® Kryo™ 460 up to 2.0GHz             |
-| GPU          | Adreno 612                                      |
-| Memory       | 6GM RAM (LPDDR4X)                               |
-| Shipped Android version | 9.0.0                              |
-| Storage      | 128GB eMMC 5.1 flash storage                    |
-| Battery      | Non-removable Li-Po 4000 mAh                    |
-| Dimensions   | 159.21 x 75.21 x 8.1 mm                         |
-| Display      | 2340 x 1080 (19.5:9), 6.3  inch                 |
-| Rear camera 1 | 12MP, f/1.79 Dual LED flash                    |
-| Rear camera 2 | 5MP, f/2.4                                    |
-| Front camera | 13MP, f/2.2 1080p 30 fps video                 |
+Basic   | Spec Sheet
+-------:|:-------------------------
+SoC     | Qualcomm SDM7150 Snapdragon 730G
+CPU     | Octa-core (2x Kryo 470 Gold @ 2.2 GHz and 6x Kryo 470 Silver @ 1.8 GHz)
+GPU     | Adreno 618
+Memory  | 6/8 GB RAM
+Shipped Android Version | 10 with MIUI 11
+Storage | 64/128/256 GB
+Battery | Non-removable Li-Po 4500 mAh battery
+Display | 1080 x 2400 pixels, 20:9 ratio, 6.67 inches, IPS LCD (~386 ppi density)
 
 ## Device picture
 
-![Xiaomi Redmi Note 7 Pro](https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/963828ec47b99ac1b057289517bed959.jpg)
+![Xiaomi Redmi K30](https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1575882160.38569692.jpg "Xiaomi Redmi K30/Poco X2")

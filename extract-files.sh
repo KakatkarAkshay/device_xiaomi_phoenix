@@ -7,7 +7,7 @@
 
 set -e
 
-DEVICE=violet
+DEVICE=phoenix
 VENDOR=xiaomi
 
 # Load extract_utils and do some sanity checks
@@ -16,7 +16,7 @@ if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 MK_ROOT="${MY_DIR}"/../../..
 
-HELPER="${MK_ROOT}/vendor/hentai/build/tools/extract_utils.sh"
+HELPER="${MK_ROOT}/vendor/lineage/build/tools/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
@@ -55,11 +55,11 @@ fi
 # Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${MK_ROOT}" true "${CLEAN_VENDOR}"
 
-#extract "${MY_DIR}/proprietary-files.txt" "${SRC}" \
-#        "${KANG}" --section "${SECTION}"
-
-extract "${MY_DIR}/proprietary-files-flame.txt" "${SRC}" \
+extract "${MY_DIR}/proprietary-files.txt" "${SRC}" \
         "${KANG}" --section "${SECTION}"
+
+#extract "${MY_DIR}/proprietary-files-flame.txt" "${SRC}" \
+#        "${KANG}" --section "${SECTION}"
 
 BLOB_ROOT="${MK_ROOT}/vendor/${VENDOR}/${DEVICE}/proprietary"
 

@@ -10,8 +10,8 @@
     "branch": "ten"
   },
   {
-    "repository": "vendor_xiaomi_violet_firmware",
-    "target_path": "vendor/xiaomi/violet/firmware",
+    "repository": "vendor_xiaomi_phoenix_firmware",
+    "target_path": "vendor/xiaomi/phoenix/firmware",
     "branch": "ten",
     "remote": "pixel-gitlab"
   },
@@ -22,7 +22,7 @@
     "remote": "pixel-gitlab"
   },
   {
-    "repository": "packages_apps_GoogleCamera_violet",
+    "repository": "packages_apps_GoogleCamera_phoenix",
     "target_path": "packages/apps/GoogleCamera",
     "branch": "ten",
     "remote": "pixel-gitlab"

@@ -1,11 +1,11 @@
 # Fingerprint
-/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.violet u:object_r:hal_fingerprint_default_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.phoenix u:object_r:hal_fingerprint_default_exec:s0
 
 # Composer
 /vendor/bin/hw/android\.hardware\.graphics\.composer@2\.3-service-sm8150 u:object_r:hal_graphics_composer_default_exec:s0
 
 # Light HAL
-/vendor/bin/hw/android\.hardware\.light@2\.0-service\.violet u:object_r:hal_light_default_exec:s0
+/vendor/bin/hw/android\.hardware\.light@2\.0-service\.phoenix u:object_r:hal_light_default_exec:s0
 
 # Atrace
 /vendor/bin/hw/android\.hardware\.atrace@1\.0-service.pixel u:object_r:hal_atrace_default_exec:s0
