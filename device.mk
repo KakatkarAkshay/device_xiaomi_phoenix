@@ -155,5 +155,7 @@ PRODUCT_PACKAGES += \
     TetheringConfigOverlay \
     WifiOverlay
 
-PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH) \
+    vendor/qcom/opensource/commonsys/packages/apps/Bluetooth
 
