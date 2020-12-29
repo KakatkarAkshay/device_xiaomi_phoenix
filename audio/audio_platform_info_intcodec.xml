@@ -121,6 +121,7 @@
         <device name="SND_DEVICE_OUT_HEADPHONES_44_1_HIFI" acdb_id="10026"/>
         <device name="SND_DEVICE_OUT_GAME_HEADPHONES" acdb_id="10022"/>
         <device name="SND_DEVICE_OUT_USB_HEADSET" acdb_id="10012"/>
+        <device name="SND_DEVICE_OUT_BT_A2DP" acdb_id="10012"/>
         <device name="SND_DEVICE_OUT_GAME_USB_HEADSET" acdb_id="10022"/>
         <device name="SND_DEVICE_OUT_USB_HEADPHONES" acdb_id="10012"/>
     </acdb_ids>
@@ -134,6 +135,7 @@
     </module_ids>
     <backend_names>
         <device name="SND_DEVICE_OUT_HEADPHONES" backend="headphones" interface="RX_CDC_DMA_RX_0"/>
+        <device name="SND_DEVICE_OUT_COVER_HEADPHONES" backend="headphones" interface="RX_CDC_DMA_RX_1"/>
         <device name="SND_DEVICE_OUT_HEADPHONES_HIFI" backend="headphones" interface="RX_CDC_DMA_RX_0"/>
         <device name="SND_DEVICE_OUT_HEADPHONES_44_1_HIFI" backend="headphones-44.1" interface="RX_CDC_DMA_RX_0"/>
         <device name="SND_DEVICE_OUT_GAME_HEADPHONES" backend="headphones" interface="RX_CDC_DMA_RX_0"/>
@@ -268,6 +270,7 @@
         <device name="SND_DEVICE_IN_GAME_SPEAKER_DMIC_AEC_NS" interface="TX_CDC_DMA_TX_3"/>
         <device name="SND_DEVICE_IN_RECORD_SPEAKER_DMIC_AEC_NS" interface="TX_CDC_DMA_TX_3"/>
         <device name="SND_DEVICE_IN_GAME_HEADSET_MIC_FLUENCE" interface="TX_CDC_DMA_TX_3"/>
+        <device name="SND_DEVICE_IN_ULTRASOUND" interface="TX_CDC_DMA_TX_4"/>
     </backend_names>
     <!-- below values are for ref purpose to OEM, doesn't contain actual hardware info on MTP -->
     <microphone_characteristics>
