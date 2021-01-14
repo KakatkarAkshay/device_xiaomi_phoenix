@@ -53,17 +53,12 @@ extract "${MY_DIR}/proprietary-files.txt" "${SRC}" \
         "${KANG}" --section "${SECTION}"
 
 DEVICE_BLOB_ROOT="${LINEAGE_ROOT}/vendor/${VENDOR}/${DEVICE}/proprietary"
-
-#
-# Fix xml version
-#
-function fix_xml_version () {
-    sed -i \
-        's/xml version="2.0"/xml version="1.0"/' \
-        "$DEVICE_BLOB_ROOT"/"$1"
+function blob_fixup() {
+    case "${1}" in
+        product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml|product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml)
+            sed -i 's/xml version="2.0"/xml version="1.0"/' "${2}"
+            ;;
+    esac
 }
-
-fix_xml_version product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml
-fix_xml_version product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml
 
 "${MY_DIR}/setup-makefiles.sh"
