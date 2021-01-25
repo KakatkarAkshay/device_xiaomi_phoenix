@@ -1,8 +1,8 @@
 [
   {
-    "repository": "kernel_xiaomi_phoenix",
+    "repository": "crdroidandroid/android_kernel_xiaomi_sm6150",
     "target_path": "kernel/xiaomi/phoenix",
-    "branch": "ten"
+    "branch": "11.0"
   },
   {
     "remote": "pixel-devices-blobs",
