@@ -52,10 +52,6 @@ system_ext/lib64/libdpmframework.so
 system_ext/lib64/libdpmtcm.so
 -system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk
 
-# HotwordEnrollment
--product/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk
--product/priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk
-
 # IMS - from LA.QSSI.11.0.r1-07500-qssi.0
 -system_ext/priv-app/ims/ims.apk|535c6e1b0b633898c3a8962be2bd0fec8176d83d
 
